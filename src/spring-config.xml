@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- user -->
+
+    <bean id="user" class="com.spring.pojo.User">
+        <property name="username" value="zhangsan"/>
+        <property name="password" value="zs123456"/>
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+    <!-- user -->
+
+    <bean id="mobileUser" class="com.spring.pojo.User">
+        <property name="username" value="lisi"/>
+        <property name="password" value="ls123456"/>
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+
+    <!-- more bean definitions for services go here -->
+    <!-- services -->
+
+    <bean id="userService" class="com.spring.service.impl.UserServiceImpl">
+        <property name="user" ref="user"/>
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+
+    <!-- more bean definitions for services go here -->
+
+    <!-- dao -->
+
+    <bean id="userDao"
+          class="com.spring.dao.UserDao">
+        <property name="userDao" ref="userDao"/>
+
+        <!-- additional collaborators and configuration for this bean go here -->
+    </bean>
+
+    <!-- more bean definitions for dao go here -->
+    <!--构造函数注入-->
+    <bean id="u" class="com.spring.pojo.User">
+        <constructor-arg name="username" value="testuser"/>
+        <constructor-arg name="password" value="testpassword"/>
+    </bean>
+
+</beans>
